@@ -10,8 +10,11 @@ int main() {
     printf("Enter String: ");
     fgets(str, sizeof(str), stdin);
 
-    printf("Enter Start and End Index: ");
-    scanf("%d %d", &start_idx, &end_idx);
+    printf("Enter Start  Index: ");
+    scanf("%d", &start_idx);
+
+    printf("Enter End Index: ");
+    scanf("%d", &end_idx);
 
     if (start_idx < 0 || end_idx >= strlen(str) - 1)
         printf("Invalid index\n");
