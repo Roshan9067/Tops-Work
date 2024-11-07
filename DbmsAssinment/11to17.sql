@@ -162,6 +162,7 @@ mysql> select * from salesperson where comm > 0.10 and comm < 0.12;
 
 mysql> select * from cusomer where rating > 100 or (city = 'rom' and rating <=100);
 ERROR 1146 (42S02): Table 'salesperson.cusomer' doesn't exist
+
 mysql> select * from customer where rating > 100 or (city = 'rom' and rating <=100);
 +-------+----------+----------+--------+-------+
 | pkcnm | cname    | city     | rating | fksno |
