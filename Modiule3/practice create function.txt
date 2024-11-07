@@ -1,0 +1,19 @@
+practice create function
+
+ 
+
+create database age;
+use age;
+delimiter //
+create function calculate_birthyear(age int)
+returns int
+deterministic
+begin
+declare birthyear int;
+set birthyear = year(curdate())-age;
+return birthyear;
+end //
+delimiter ; 
+
+select calculate_birthyear(32) as birthyear;
+

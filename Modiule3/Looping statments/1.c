@@ -4,7 +4,7 @@
 int main(){
     int a;
 
-    for(a=972; a >= 879; a-- ) {
+    for(a=972; a >= 879; a--) {
         printf(" %d ", a);
     }
     

@@ -16,7 +16,7 @@ int main() {
         if(num[a] % 2 == 0){
             even++;
             sumeven += num[a]; 
-        }
+        }  
         else{
             odd++;
             sumodd += num[a];

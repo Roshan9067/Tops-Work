@@ -1,0 +1,6 @@
+typecasting in java is the process of convrting one data type into another datatype using the casting operatoe.
+
+types
+
+1. windning type casting. automatic.
+2.narrow type casting.    manual.

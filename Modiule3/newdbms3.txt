@@ -1,0 +1,34 @@
+ysql> create table teacher(teacher_id int primary key,teacher_name varchar(50) not null,subject varchar(50) not null,email varchar(50) unique);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> describe teacher;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| teacher_id   | int         | NO   | PRI | NULL    |       |
+| teacher_name | varchar(50) | NO   |     | NULL    |       |
+| subject      | varchar(50) | NO   |     | NULL    |       |
+| email        | varchar(50) | YES  | UNI | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+4 rows in set (0.04 sec)
+
+mysql> alter table student add teacher_id int , foreign key teacher_id references teacher teacher_id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'foreign key teacher_id references teacher teacher_id' at line 1
+mysql> ALTER TABLE student ADD teacher_id INT,ADD CONSTRAINT fk_teacherFOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'KEY (teacher_id) REFERENCES teacher(teacher_id)' at line 1
+mysql> ALTER TABLE student ADD teacher_id INT,ADD CONSTRAINT fk_teacher FOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id);
+Query OK, 5 rows affected (0.10 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> describe student;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| student_id   | int          | YES  |     | NULL    |       |
+| student_name | varchar(50)  | YES  |     | NULL    |       |
+| age          | int          | YES  |     | NULL    |       |
+| class        | int          | YES  |     | NULL    |       |
+| address      | varchar(100) | YES  |     | NULL    |       |
+| teacher_id   | int          | YES  | MUL | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
